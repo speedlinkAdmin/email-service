@@ -7,7 +7,7 @@ import { log } from './src/utils/logger.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use('/api', mailRoutes);
