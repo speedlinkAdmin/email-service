@@ -17,7 +17,7 @@ export const sendMail = async (req, res) => {
     }));
 
     const mailOptions = {
-      from: process.env.FROM_EMAIL || 'noreply@example.com',
+      from: process.env.FROM_EMAIL || 'noreply@cfpuniport.org',
       to: Array.isArray(to) ? to.join(', ') : to,
       subject,
       html,
