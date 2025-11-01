@@ -17,7 +17,7 @@ export const sendMail = async (req, res) => {
     }));
 
     const mailOptions = {
-      from: process.env.FROM_EMAIL || 'noreply@cfpuniport.org',
+      from: `"${process.env.SMTP_FROM}" <${process.env.SMTP_USER}>` ,
       to: Array.isArray(to) ? to.join(', ') : to,
       subject,
       html,
