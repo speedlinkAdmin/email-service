@@ -160,3 +160,23 @@ export const testMailerConfig = async (req, res) => {
     });
   }
 };
+
+export const testMail = async (req, res) => {
+  try {
+    const info = await transporter.sendMail({
+      from: `"${process.env.SMTP_FROM}" <${process.env.SMTP_USER}>`,
+      to: "honourakhigbe@gmail.com",
+      subject: "✅ Test Email from LMS Backend",
+      text: "If you received this, your SMTP setup works perfectly!",
+    });
+    res.json({ success: true, message: 'Email sent successfully', messageId: info.messageId });
+    console.log("✅ Email sent:", info.response);
+  } catch (err) {
+    console.error("❌ Email failed:", err);
+    res.status(500).json({
+      success: false,
+      message: 'Email configuration test failed',
+      error: err.message,
+    });
+  }
+};

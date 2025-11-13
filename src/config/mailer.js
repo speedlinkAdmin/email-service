@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT, 10),
   secure: true,
-  // service: process.env.EMAIL_SERVICE,
+  service: "gmail",
 
   auth: {
     user: process.env.SMTP_USER,
